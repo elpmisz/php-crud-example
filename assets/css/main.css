@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'K2D';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/assets/fonts/K2D-Medium.woff') format('woff');
+}
+
+body {
+  font-family: 'K2D';
+  background: #fff;
+  color: #000;
+}
+
+.card-header {
+  background: #fff;
+}
+
+th {
+  text-align: center !important;
+  white-space: nowrap;
+}
+
+td {
+  text-align: left;
+  vertical-align: middle;
+  font-size: 90%;
+}
+
+a {
+  text-decoration: none;
+}
+

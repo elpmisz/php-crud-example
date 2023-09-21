@@ -1,0 +1,24 @@
+{
+  "name": "worachit.pa/jwt",
+  "autoload": {
+    "psr-4": {
+      "app\\": "./"
+    }
+  },
+  "authors": [
+    {
+      "name": "elpmisz",
+      "email": "worachit.pa@gmail.com"
+    }
+  ],
+  "require": {
+    "firebase/php-jwt": "^6.8",
+    "altorouter/altorouter": "^2.0",
+    "twbs/bootstrap": "^5.3",
+    "components/jquery": "^3.6",
+    "datatables/datatables": "^1.10",
+    "phpoffice/phpspreadsheet": "^1.29",
+    "mpdf/mpdf": "^8.2",
+    "fortawesome/font-awesome": "^6.4"
+  }
+}
