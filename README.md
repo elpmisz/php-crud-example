@@ -1,4 +1,4 @@
-# JWT Example
+# CRUD Example
 
 # Install
 git clone https://github.com/elpmisz/php-crud-example \
