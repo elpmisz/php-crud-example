@@ -4,11 +4,13 @@ namespace app\classes;
 
 class Validation
 {
-  public function alert($alert, $text, $url)
+  public function alert($alert, $text, $url = null)
   {
-    $_SESSION['alert'] = $alert;
-    $_SESSION['text'] = $text;
-    die(header("Location: {$url}"));
+    setcookie("alert", $alert);
+    setcookie("text", $text);
+    if (!empty($url)) {
+      die(header("Location: {$url}"));
+    }
   }
 
   public function input($data)

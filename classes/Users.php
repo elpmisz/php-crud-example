@@ -16,7 +16,7 @@ class Users
 
   public function count($data)
   {
-    $sql = "SELECT COUNT(*) FROM jwt.crud WHERE email = ?";
+    $sql = "SELECT COUNT(*) FROM crud WHERE email = ?";
     $stmt = $this->dbcon->prepare($sql);
     $stmt->execute($data);
     return $stmt->fetchColumn();
@@ -24,7 +24,7 @@ class Users
 
   public function detail($data)
   {
-    $sql = "SELECT * FROM jwt.crud WHERE email = ?";
+    $sql = "SELECT * FROM crud WHERE email = ?";
     $stmt = $this->dbcon->prepare($sql);
     $stmt->execute($data);
     return $stmt->fetch(PDO::FETCH_ASSOC);

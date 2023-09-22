@@ -72,7 +72,18 @@
       cancelButtonText: "Close",
     }).then((result) => {
       if (result.value) {
-        window.location.href = "/delete/" + id;
+        axios.post("/delete", {
+          id: id
+        }).then((res) => {
+          let result = parseInt(res.data);
+          if (result === 200) {
+            location.reload()
+          } else {
+            location.reload()
+          }
+        }).catch((error) => {
+          console.log(error);
+        });
       } else {
         return false;
       }

@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-session_start();
 
 use app\classes\Users;
 use app\classes\Validation;
@@ -44,14 +43,9 @@ if ($action === "update") {
     $name = (isset($_POST['name']) ? $Validation->input($_POST['name']) : "");
     $email = (isset($_POST['email']) ? $Validation->input($_POST['email']) : "");
 
-    $count = $Users->count([$email]);
-    if (intval($count) !== 0) {
-      $Validation->alert("danger", "E-Mail Already in use!", "/");
-    }
-
     $Users->update([$name, $email, $id]);
 
-    $Validation->alert("primary", "Updated!", "/");
+    $Validation->alert("success", "Updated!", "/");
   } catch (PDOException $e) {
     die($e->getMessage());
   }
@@ -59,8 +53,16 @@ if ($action === "update") {
 
 if ($action === "delete") {
   try {
-    $Users->delete([$param1]);
-    $Validation->alert("success", "Deleted!", "/");
+    $obj = json_decode(file_get_contents('php://input'));
+    $id = $obj->id;
+    if (!empty($id)) {
+      $Users->delete([$id]);
+      $Validation->alert("success", "Deleted!");
+      echo json_encode(200);
+    } else {
+      $Validation->alert("danger", "Error!");
+      echo json_encode(500);
+    }
   } catch (PDOException $e) {
     die($e->getMessage());
   }

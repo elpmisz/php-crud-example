@@ -27,10 +27,6 @@ $Router->map("GET", "/logout", function () {
 $Router->map("POST", "/[**:params]", function ($params) {
   require __DIR__ . "/views/home/action.php";
 });
-$Router->map("GET", "/[**:params]", function ($params) {
-  require __DIR__ . "/views/home/action.php";
-});
-
 
 ###########################################
 $Router->map("GET", "/error", function () {
